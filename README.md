@@ -1,2 +1,3 @@
 # test-technical-task
-For minecraft.ru
+
+Сделано для minecraft.ru
