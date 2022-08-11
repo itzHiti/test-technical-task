@@ -1,0 +1,223 @@
+menu_title: '&f七七七七七七七七݋'
+open_command:
+- reward
+- rewards
+size: 27
+
+items:
+  'gladius_netherite_skin':
+    material: NETHERITE_SWORD
+    display_name: '&fСкин гладиус на незеритовый меч'
+    data: 0
+    amount: 1
+    slot: 10
+    nbt_int: CustomModelData:2006
+    lore:
+    - ""
+    - "&fНаграду можно забрать после:"
+    - "&630 минут&6 на сервере."
+    left_click_commands:
+    - '[message] &7[&6Награды&7] Вы успешно &6получили скин гладиолус&7 на незеритовый меч за то что провели в игре 30 минут. 
+    Вы можете &6применить скин&7 держа в руке незеритовый меч и написав &6команду /is&7.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    - '[console] lp user %player_name% permission set itemskinchanger.gladius_netherite true'
+    left_click_requirement:
+      requirements:
+        hasPermission:
+          type: "!has permission"
+          permission: "itemskinchanger.gladius_netherite"
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы уже &6получили&7 эту награду. Вы можете &6применить скин&7 держа в руке незеритовый меч и написав &6команду /is&7'
+        isPlayed:
+          type: ">=" 
+          input: "%statistic_minutes_played%"
+          output: 30
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы еще &6не достаточно времени&7 провели на сервере!
+          Чтобы получить эту награду вам нужно &6наиграть 30 минут&7, а вы наиграли &6%statistic_minutes_played%&7 минут.'  
+  'money_1000':
+    material: sunflower
+    display_name: '&f1000 Монет'
+    data: 0
+    amount: 1
+    slot: 11
+    lore:
+    - ""
+    - "&fНаграду можно забрать после:"
+    - "&61 часа&6 на сервере."
+    left_click_commands:
+    - '[message] &7[&6Награды&7] Вы успешно &6получили 1000 монет&7 за то что провели в игре 1 час.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    - '[console] eco give %player_name% 1000 '
+    - '[console] lp user %player_name% permission set reward.money_1000 true'
+    left_click_requirement:
+      requirements:
+        hasPermission:
+          type: "!has permission"
+          permission: "reward.money_1000"
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы уже &6получили&7 эту награду.'
+        isPlayed:
+          type: ">=" 
+          input: "%statistic_minutes_played%"
+          output: 60
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы еще &6не достаточно времени&7 провели на сервере!
+          Чтобы получить эту награду вам нужно &6наиграть 1 час&7, а вы наиграли &6%statistic_minutes_played%&7 минут.'
+  'diamond_32':
+    material: diamond
+    display_name: ''
+    data: 0
+    amount: 10
+    slot: 12
+    lore:
+    - ""
+    - "&fНаграду можно забрать после:"
+    - "&62-х часов&6 на сервере."
+    left_click_commands:
+    - '[message] &7[&6Награды&7] Вы успешно &632 алмаза&7 за то что провели в игре 2 часа.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    - '[console] minecraft:give %player_name% minecraft:diamond 10'
+    - '[console] lp user %player_name% permission set reward.diamond_32 true'
+    left_click_requirement:
+      requirements:
+        hasPermission:
+          type: "!has permission"
+          permission: "reward.diamond_32"
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы уже &6получили&7 эту награду.'
+        isPlayed:
+          type: ">=" 
+          input: "%statistic_minutes_played%"
+          output: 120
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы еще &6не достаточно времени&7 провели на сервере!
+          Чтобы получить эту награду вам нужно &6наиграть 2 часа&7, а вы наиграли &6%statistic_hours_played%&7 часов.'          
+  'money_10000':
+    material: sunflower
+    display_name: '&f10000 Монет'
+    data: 0
+    amount: 1
+    slot: 13
+    lore:
+    - ""
+    - "&fНаграду можно забрать после:"
+    - "&62-х с половиной часов&6 на сервере."
+    left_click_commands:
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    - '[console] lp user %player_name% permission set reward.money_10000 true'
+    - '[console] eco give %player_name% 10000'
+    left_click_requirement:
+      requirements:
+        hasPermission:
+          type: "!has permission"
+          permission: "reward.money_10000"
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы уже &6получили&7 эту награду.'
+        isPlayed:
+          type: ">=" 
+          input: "%statistic_minutes_played%"
+          output: 150
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы еще &6не достаточно времени&7 провели на сервере!
+          Чтобы получить эту награду вам нужно &6наиграть 2 с половиной часа&7, а вы наиграли &6%statistic_hours_played%&7 часов.'          
+  'netherite_ingot':
+    material: netherite_ingot
+    display_name: ''
+    data: 0
+    amount: 2
+    slot: 14
+    lore:
+    - ""
+    - "&fНаграду можно забрать после:"
+    - "&63-х часов&6 на сервере."
+    left_click_commands:
+    - '[message] &7[&6Награды&7] Вы успешно получили &632 незеритовых слитка&7 за то что провели в игре 3 часа.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    - '[console] lp user %player_name% permission set reward.netherite_ingot true'
+    - '[console] minecraft:give %player_name% minecraft:netherite_ingot 2'
+    left_click_requirement:
+      requirements:
+        hasPermission:
+          type: "!has permission"
+          permission: "reward.netherite_ingot"
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы уже &6получили&7 эту награду.'
+        isPlayed:
+          type: ">=" 
+          input: "%statistic_minutes_played%"
+          output: 180
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы еще &6не достаточно времени&7 провели на сервере!
+          Чтобы получить эту награду вам нужно &6наиграть 3 часа&7, а вы наиграли &6%statistic_hours_played%&7 часов.'
+  'totem_of_undying':
+    material: totem_of_undying
+    display_name: '2 Тотема бессмертия'
+    data: 0
+    amount: 2
+    slot: 15
+    lore:
+    - ""
+    - "&fНаграду можно забрать после:"
+    - "&63-х с половиной часов&6 на сервере."
+    left_click_commands:
+    - '[message] &7[&6Награды&7] Вы успешно получили &62 Тотема бессмертия&7 за то что провели в игре 3-х с половиной часа.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    - '[console] minecraft:give %player_name% minecraft:totem_of_undying 2'
+    - '[console] lp user %player_name% permission set reward.totem_of_undying true'
+    left_click_requirement:
+      requirements:
+        hasPermission:
+          type: "!has permission"
+          permission: "reward.totem_of_undying"
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы уже &6получили&7 эту награду.'
+        isPlayed:
+          type: ">=" 
+          input: "%statistic_minutes_played%"
+          output: 210
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы еще &6не достаточно времени&7 провели на сервере!
+          Чтобы получить эту награду вам нужно &6наиграть 3-х с половиной часа&7, а вы наиграли &6%statistic_hours_played%&7 часов.'         
+  'rengoku_katana':
+    material: netherite_sword
+    display_name: '&fСкин Катана Ренгоку на незеритовый меч'
+    data: 0
+    amount: 1
+    slot: 16
+    nbt_int: CustomModelData:2003
+    lore:
+    - ""
+    - "&fНаграду можно забрать после:"
+    - "&64-х часов&6 на сервере."
+    left_click_commands:
+    - '[message] &7[&6Награды&7] Вы успешно получили &6Скин Катана Ренгоку на незеритовый меч&7 за то что провели в игре 4 часа. Вы можете &6применить скин&7 держа в руке незеритовый меч и написав &6команду /is&7'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    - '[console] lp user %player_name% permission set itemskinchanger.rengoku_katana true'
+    left_click_requirement:
+      requirements:
+        hasPermission:
+          type: "!has permission"
+          permission: "itemskinchanger.rengoku_katana"
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы уже &6получили&7 эту награду. Вы можете &6применить скин&7 держа в руке незеритовый меч и написав &6команду /is&7'
+        isPlayed:
+          type: ">=" 
+          input: "%statistic_minutes_played%"
+          output: 240
+          deny_commands:
+          - '[message] &7[&6Награды&7] Вы еще &6не достаточно времени&7 провели на сервере!
+          Чтобы получить эту награду вам нужно &6наиграть 4 часа&7, а вы наиграли &6%statistic_hours_played%&7 часов.'
+
+  'info':
+    material: gold_nugget
+    display_name: '&f'
+    data: 0
+    amount: 1
+    nbt_int: CustomModelData:7000
+    slot: 26
+    lore:
+    - "&fЭто награды"
+    - "&aТут ты можешь получить крутую награду за игру на сервере!" 
+
+   

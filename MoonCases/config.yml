@@ -1,0 +1,1686 @@
+#
+# Плагин был разработан командой разработчиков студии "MoonStudio" и является их гордостью.
+# По любым вопросам просьба клиентам незамедлительно обращаться в сообщения сообщества.
+# Vk: vk.com/moonstudio
+#
+# Зависимость плагина - HolographicDisplays. Без него кейсы работать не будут!
+#
+# Обратите внимание! Плейсхолдер %free_time_<название_кейса>% выводит время, оставшееся до получения
+# Плагин адаптирован под 1.8 - 1.17+ точно! На разных версиях могут по разному называться звуки! Следите за этим!!!
+# Шансы кейса должны всегда давать в сумме 100! Могут быть указаны как целые, так и дробные значения!
+#
+
+# Если эта опция выключена (false), все ники в базе будут храниться в нижнем регистре.
+# Это значение рекомендуется отключить, если Ваш плагин авторизации блокирует заход на сервер
+# под неправильным регистром (Notch - правильный, nOtcH - неправильный). Крайне рекомендуется
+# отключить эту функцию во избежание возможных проблем с записью ключей на неверный аккаунт.
+CASE-SENSITIVE-NAMES: false
+HOLO-HEIGHT-Y: 2.0
+DEFAULT_HOLOGRAM: # Голограмма над кейсом
+  - '&6Кейс'
+  - '&7Нажмите &6ПКМ&7, чтобы открыть'
+HISTORY:
+  ENABLED: true
+  EMPTY_ITEM_ID_DEFAULT: ORANGE_STAINED_GLASS_PANE
+  #  EMPTY_ITEM_IDS:
+  #    51: 'STONE'
+  FORMAT:
+    NAME: '&6{player}'
+    LORE:
+    - '&6|&7 Дата: &6{date}'
+    - '&6|&7 Время: &6{time}'
+    - '&6|&7 Выигрыш: &6{prize}'
+GUI: # Меню кейсов
+  ROWS: 6 # Количество рядов в меню
+  TITLE: '&7Кейсы' # Название меню
+  CASES_ITEMS: # Вот под этим создаются кейсы, в нашем случае их три - donate, money и daily
+    money:
+      ID: SUNFLOWER
+      SLOT: 29
+      NAME: '&6Монетный кейс'
+      LORE:
+      - '&6|&7 Количество кейсов: &6%cases_money%'
+      - '&6|&7 Нажмите, чтобы &6открыть&7 кейс'
+      - '&6|&7 Покупка &6->&7 на сайте "&6minecraft.ru&7"'
+    
+    #
+    skins_daily:
+      ID: TOTEM_OF_UNDYING
+      SLOT: 22
+      NAME: '&6Ежедневный кейс'
+      LORE:
+      - '&6|&7 До получения осталось: &6%free_time_skins_daily%'
+      - '&6|&7'
+      - '&6|&7 Нажмите, чтобы &6открыть&7 кейс'
+    
+    armor:
+      ID: NETHERITE_CHESTPLATE
+      SLOT: 31
+      NAME: '&6Кейс Брони'
+      LORE:
+      - '&6|&7 Количество кейсов: &6%cases_armor%'
+      - '&6|&7 Нажмите, чтобы &6открыть&7 кейс'
+      - '&6|&7 Покупка &6->&7 У NPC "&6Ключник&7"'
+    
+    allin:
+      ID: NETHERITE_INGOT
+      SLOT: 32
+      NAME: '&6Все или ничего'
+      LORE:
+      - '&6|&7 Количество кейсов: &6%cases_allin%'
+      - '&6|&7 Нажмите, чтобы &6открыть&7 кейс'
+      - '&6|&7 Покупка &6->&7 У NPC "&6Ключник&7"'
+    
+    
+    ingredients:
+      ID: LAVA_BUCKET
+      SLOT: 30
+      NAME: '&6Кейс Ингредиентов'
+      LORE:
+      - '&6|&7 Количество кейсов: &6%cases_ingredients%'
+      - '&6|&7 Нажмите, чтобы &6открыть&7 кейс'
+      - '&6|&7 Покупка &6->&7 У NPC "&6Ключник&7"'
+    
+    
+    
+    
+    tools:
+      ID: NETHERITE_SWORD
+      SLOT: 33
+      NAME: '&6Кейс Инструментов'
+      LORE:
+      - '&6|&7 Количество кейсов: &6%cases_tools%'
+      - '&6|&7 Нажмите, чтобы &6открыть&7 кейс'
+      - '&6|&7 Покупка &6->&7 У NPC "&6Ключник&7"'
+      
+      
+    titles:
+      ID: NAME_TAG
+      SLOT: 40
+      NAME: '&6Кейс с титулами'
+      LORE:
+      - '&6|&7 Количество кейсов: &6%cases_titles%'
+      - '&6|&7 Нажмите, чтобы &6открыть&7 кейс'
+      - '&6|&7 Покупка &6->&7 на сайте "&6minecraft.ru&7"'
+  
+  DEFAULT_ITEMS: # Предметы, которые всегда будут находиться в меню!
+    info:
+      SLOT: 4 # Слот
+      ID: PAPER
+      NAME: '&6&lИнформация'
+      LORE:
+      - ''
+      - '&6|&7 Покупка кейсов скоро на сайте &6Minecraft.ru'
+      - '&6|&7 Чтобы открыть кейс, нажмите по его предмету'
+      - ''
+      AMOUNT: 1 # Кол-во предмета в меню (циферка на предмете)
+    glass1: # Название, может быть любым. Но мы glass<номер> поставили, чтобы было понятно, что это стекло, и пронумеровали просто)
+      SLOT: 0 # Слот
+      ID: ORANGE_STAINED_GLASS_PANE # ID предмета
+      NAME: '' # Название
+      LORE: # Описание. Сейчас оно пустое
+        - ''
+      AMOUNT: 1 # Количество предмета
+    glass2:
+      SLOT: 1
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass3:
+      SLOT: 2
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass4:
+      SLOT: 3
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass5:
+      SLOT: 5
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass6:
+      SLOT: 6
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass7:
+      SLOT: 7
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass8:
+      SLOT: 8
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass9:
+      SLOT: 9
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass10:
+      SLOT: 12
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass11:
+      SLOT: 13
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass12:
+      SLOT: 14
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass13:
+      SLOT: 17
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass14:
+      SLOT: 18
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass15:
+      SLOT: 26
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass16:
+      SLOT: 27
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass17:
+      SLOT: 35
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass18:
+      SLOT: 36
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+    glass19:
+      SLOT: 44
+      ID: ORANGE_STAINED_GLASS_PANE
+      NAME: ''
+      LORE:
+      - ''
+      AMOUNT: 1
+MESSAGES: # Блок сообщений
+  NO_PERMISSIONS: '&6&lКейсы&f: У вас недостаточно прав!'
+  HELP:
+  - '[&6Кейсы&7] Помощь |'
+  - ''
+  - Выдать кейсы игроку - &6/cases give [ник] [название_кейса] [количество]
+  - Установить кейсы игроку - &6/cases set [ник] [название_кейса] [количество]
+  - Отнять кейсы у игрока - &6/cases delete [ник] [название_кейса] [количество]
+  - Установить кейс - &6/cases setcase [направление, x или z]
+  - Удалить последний установленный кейс - &6/cases delcase
+  - ''
+  NOT_NUMERIC: '&7[&6Кейсы&7] Вы неправильно ввели число'
+  COMMAND_GIVE_USE: '&7[&6Кейсы&7] Вы неправильно ввели команду, посмотрите ее использование
+    - &6/cases'
+  COMMAND_SET_USE: '&7[&6Кейсы&7] Вы неправильно ввели команду, посмотрите ее использование
+    - &6/cases'
+  COMMAND_DELETE_USE: '&7[&6Кейсы&7] Вы неправильно ввели команду, посмотрите ее использование
+    - &6/cases'
+  COMMAND_SETCASE_USE: '&7[&6Кейсы&7] Вы неправильно ввели команду, посмотрите ее
+    использование - &6/cases'
+  COMMAND_GIVE_SUCCESS: '&7[&6Кейсы&7] Вы выдали игроку &6{player}&7 &6{amount} {case}&7
+    кейсов'
+  COMMAND_SET_SUCCESS: '&7[&6Кейсы&7] Вы установили игроку &6{player}&7 &6{amount}
+    {case}&7 кейсов'
+  COMMAND_DELETE_SUCCESS: '[&6Кейсы&7] Вы отняли у игрока &6{player}&7 &6{amount}
+    {case}&7 кейсов'
+  COMMAND_SETCASE_SUCCESS: '&7[&6Кейсы&7] Вы успешно установили кейс по направлению
+    вращения &7{direction}'
+  COMMAND_DELCASE_SUCCESS: '&7[&6Кейсы&7] Вы успешно удалили локацию последнего кейса'
+  COMMAND_DELCASE_NOT_FOUND: '&7[&6Кейсы&7] На данный момент не установлен ещё ни
+    один кейс'
+  CASE_NOT_LOADED: '&7[&6Кейсы&7] Непредвиденная ошибка'
+  CASE_IN_OPEN: '&7[&6Кейсы&7] Кейс &6уже открывается&7, пожалуйста, подождите или
+    откройте другой'
+  NO_CASES: '&7[&6Кейсы&7] У вас нету &6{case}&7 кейсов'
+  COMMAND_SETCASE_SUCESS: '&7[&6Кейсы&7] Вы успешно установили кейс по направлению
+    вращения &6{direction}'
+  CASE_IS_OPEN: '&7[&6Кейсы&7] Кейс &6уже открывается&7, пожалуйста, подождите или
+    откройте другой'
+  
+  CASE_GET:
+  - '&7[&6Кейсы&7] На ваш аккаунт было куплено&6 {0} &7кейсов типа&6 {1}&7.'
+
+CASES:
+
+  titles:
+    IS_FREE: false
+    ANIMATION_SETTINGS:
+      ROTATE_SOUND: BLOCK_NOTE_BLOCK_BANJO
+      END_SOUND: ENTITY_PLAYER_LEVELUP
+      RADIUS: 1.5
+      USE_FROSTLORD: true
+      ROTATE_TIME: 3
+      ITEMS_SPEED: 11.5
+      PARTICLES_SPEED: 8
+    ITEMS:
+      '1':
+        TYPE: COMMAND
+        ID: NAME_TAG
+        TITLE: '&eКороль'
+        COMMANDS:
+        - console;pex user {player} suffix "&eКороль"
+        - tm;&7Титул &eКороль;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл титул &eКороль &7в кейсе с титулами.
+        CHANCE: 20
+      '2':
+        TYPE: COMMAND
+        ID: NAME_TAG
+        TITLE: '&cПутешественник'
+        COMMANDS:
+        - console;pex user {player} suffix "&cПутешественник"
+        - tm;&7Титул &cПутешественник;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл титул &cПутешественник &7в кейсе с титулами.
+        CHANCE: 20
+      '3':
+        TYPE: COMMAND
+        ID: NAME_TAG
+        TITLE: '&6Легенда'
+        COMMANDS:
+        - console;pex user {player} suffix "&6Легенда"
+        - tm;&7Титул &6Легенда;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл титул &6Легенда &7в кейсе с титулами.
+        CHANCE: 20
+      '4':
+        TYPE: COMMAND
+        ID: NAME_TAG
+        TITLE: '&aГерой'
+        COMMANDS:
+        - console;pex user {player} suffix "&aГерой"
+        - tm;&7Титул &aГерой;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл титул &aГерой &7в кейсе с титулами.
+        CHANCE: 20
+      '5':
+        TYPE: COMMAND
+        ID: NAME_TAG
+        TITLE: '&5Колдун'
+        COMMANDS:
+        - console;pex user {player} suffix "&5Колдун"
+        - tm;&7Титул &5Колдун;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл титул &5Колдун &7в кейсе с титулами.
+        CHANCE: 20
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  allin:
+    IS_FREE: false
+    ANIMATION_SETTINGS:
+      ROTATE_SOUND: UI_BUTTON_CLICK
+      END_SOUND: BLOCK_CHEST_CLOSE
+      RADIUS: 1.5
+      USE_FROSTLORD: true
+      ROTATE_TIME: 3
+      ITEMS_SPEED: 11.5
+      PARTICLES_SPEED: 8
+    ITEMS:
+      COAL1:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL2:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL3:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL4:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL5:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL6:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL7:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL8:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL9:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 10
+      COAL10:
+        TYPE: COMMAND
+        ID: COAL
+        TITLE: Уголь
+        COMMANDS:
+        - console;minecraft:give {player} coal 1
+        - tm;Уголь;&7Увы :(
+        CHANCE: 5
+      '50000':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&650000'
+        COMMANDS:
+        - console;eco give {player} 50000
+        - tm;&650000 &7тау;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &650,000 &7в кейсе все или ничего.
+        CHANCE: 0.5
+  
+  
+  
+  
+  
+  
+  
+  
+  tools:
+    IS_FREE: false
+    ANIMATION_SETTINGS:
+      ROTATE_SOUND: UI_BUTTON_CLICK
+      END_SOUND: BLOCK_CHEST_CLOSE
+      RADIUS: 1.5
+      USE_FROSTLORD: true
+      ROTATE_TIME: 3
+      ITEMS_SPEED: 11.5
+      PARTICLES_SPEED: 8
+    ITEMS:
+      DIAMOND_SWORD_1:
+        TYPE: COMMAND
+        ID: DIAMOND_SWORD
+        TITLE: §aАлмазный меч
+        COMMANDS:
+        - console;minecraft:give {player} diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:4s},{id:"minecraft:knockback",lvl:2s}]}
+          1
+        - tm;&aАлмазный меч;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &aАлмазный меч &7в кейсе с инструментами.
+        CHANCE: 20
+      DIAMOND_SWORD_2:
+        TYPE: COMMAND
+        ID: DIAMOND_SWORD
+        TITLE: §eАлмазный меч
+        COMMANDS:
+        - console;minecraft:give {player} diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:5s}]}
+          1
+        - tm;&eАлмазный меч;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &eАлмазный меч &7в кейсе с инструментами.
+        CHANCE: 3.5
+      DIAMOND_SWORD_3:
+        TYPE: COMMAND
+        ID: DIAMOND_SWORD
+        TITLE: §cАлмазный меч
+        COMMANDS:
+        - console;minecraft:give {player} diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:5s},{id:"minecraft:fire_aspect",lvl:2s},{id:"minecraft:looting",lvl:3s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&cАлмазный меч;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &cАлмазный меч &7в кейсе с инструментами.
+        CHANCE: 3.5
+      DIAMOND_SWORD_4:
+        TYPE: COMMAND
+        ID: DIAMOND_SWORD
+        TITLE: §x§0§8§4§c§f§bД§x§2§4§6§8§f§bо§x§3§f§8§4§f§cб§x§5§b§a§0§f§cы§x§7§6§b§b§f§cч§x§9§2§d§7§f§dа
+          §x§a§d§f§3§f§d5
+        COMMANDS:
+        - console;minecraft:give {player} diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:5s},{id:"minecraft:fire_aspect",lvl:2s},{id:"minecraft:looting",lvl:5s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;§x§0§8§4§c§f§bД§x§2§4§6§8§f§bо§x§3§f§8§4§f§cб§x§5§b§a§0§f§cы§x§7§6§b§b§f§cч§x§9§2§d§7§f§dа
+          §x§a§d§f§3§f§d5;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл §x§0§8§4§c§f§bД§x§2§4§6§8§f§bо§x§3§f§8§4§f§cб§x§5§b§a§0§f§cы§x§7§6§b§b§f§cч§x§9§2§d§7§f§dу
+          §x§a§d§f§3§f§d5 &7в кейсе с инструментами.
+        CHANCE: 0.5
+      NETHERITE_SWORD_1:
+        TYPE: COMMAND
+        ID: NETHERITE_SWORD
+        TITLE: '&cНезеритовый меч'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_sword{Enchantments:[{id:"minecraft:sharpness",lvl:4s},{id:"minecraft:knockback",lvl:2s}]}
+          1
+        - tm;&cНезеритовый меч;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &cНезеритовый меч &7в кейсе
+          с инструментами.
+        CHANCE: 1.5
+      NETHERITE_SWORD_2:
+        TYPE: COMMAND
+        ID: NETHERITE_SWORD
+        TITLE: §x§0§8§4§c§f§bД§x§2§4§6§8§f§bо§x§3§f§8§4§f§cб§x§5§b§a§0§f§cы§x§7§6§b§b§f§cч§x§9§2§d§7§f§dа
+          §x§a§d§f§3§f§d5
+        COMMANDS:
+        - console;minecraft:give {player} netherite_sword{Enchantments:[{id:"minecraft:sharpness",lvl:5s},{id:"minecraft:fire_aspect",lvl:2s},{id:"minecraft:looting",lvl:5s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;§x§0§8§4§c§f§bД§x§2§4§6§8§f§bо§x§3§f§8§4§f§cб§x§5§b§a§0§f§cы§x§7§6§b§b§f§cч§x§9§2§d§7§f§dа
+          §x§a§d§f§3§f§d5;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл §x§0§8§4§c§f§bД§x§2§4§6§8§f§bо§x§3§f§8§4§f§cб§x§5§b§a§0§f§cы§x§7§6§b§b§f§cч§x§9§2§d§7§f§dа
+          §x§a§d§f§3§f§d5 &7в кейсе с инструментами.
+        CHANCE: 0.25
+      DIAMOND_AXE_1:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: '&aАлмазный топор'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_axe{Enchantments:[{id:"minecraft:efficiency",lvl:5s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&aАлмазный топор;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &aАлмазный топор &7в кейсе с
+          инструментами.
+        CHANCE: 20
+      DIAMOND_AXE_2:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: '&eАлмазный топор'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_axe{Enchantments:[{id:"minecraft:sharpness",lvl:5s},{id:"minecraft:efficiency",lvl:5s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&eАлмазный топор;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &eАлмазный топор &7в кейсе с
+          инструментами.
+        CHANCE: 3
+      DIAMOND_AXE_3:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: '&cАлмазный топор'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_axe{Enchantments:[{id:"minecraft:sharpness",lvl:5s},{id:"minecraft:efficiency",lvl:5s},{id:"minecraft:silk_touch",lvl:1s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&cАлмазный топор;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &cАлмазный топор &7в кейсе с
+          инструментами.
+        CHANCE: 2.5
+      NETHERITE_AXE_1:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: '&eНезеритовый топор'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_axe{Enchantments:[{id:"minecraft:sharpness",lvl:5s},{id:"minecraft:efficiency",lvl:5s}]}
+          1
+        - tm;&eНезеритовый топор;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &eНезеритовый топор &7в кейсе
+          с инструментами.
+        CHANCE: 2
+      NETHERITE_AXE_2:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: §x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7
+        COMMANDS:
+        - console;minecraft:give {player} netherite_axe{Enchantments:[{id:"minecraft:sharpness",lvl:5s},{id:"minecraft:efficiency",lvl:7s},{id:"minecraft:silk_touch",lvl:1s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;§x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл §x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7 &7в кейсе с инструментами.
+        CHANCE: 0.5
+      DIAMOND_PICKAXE_1:
+        TYPE: COMMAND
+        ID: DIAMOND_PICKAXE
+        TITLE: '&aАлмазная кирка'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_pickaxe{Enchantments:[{id:"minecraft:efficiency",lvl:2s}]}
+          1
+        - tm;&aАлмазная кирка;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &aАлмазная кирка &7в кейсе с
+          инструментами.
+        CHANCE: 20
+      DIAMOND_PICKAXE_2:
+        TYPE: COMMAND
+        ID: DIAMOND_PICKAXE
+        TITLE: '&eАлмазная кирка'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_pickaxe{Enchantments:[{id:"minecraft:efficiency",lvl:5s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&eАлмазная кирка;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &eАлмазная кирка &7в кейсе с
+          инструментами.
+        CHANCE: 2.5
+      DIAMOND_PICKAXE_3:
+        TYPE: COMMAND
+        ID: DIAMOND_PICKAXE
+        TITLE: §x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7
+        COMMANDS:
+        - console;minecraft:give {player} diamond_pickaxe{Enchantments:[{id:"minecraft:efficiency",lvl:7s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:fortune",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;§x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл §x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7 &7в кейсе с инструментами.
+        CHANCE: 0.5
+      NETHERITE_PICKAXE_2:
+        TYPE: COMMAND
+        ID: NETHERITE_PICKAXE
+        TITLE: §x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d6
+        COMMANDS:
+        - console;minecraft:give {player} netherite_pickaxe{Enchantments:[{id:"minecraft:efficiency",lvl:6s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:fortune",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;§x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d6;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл §x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d6 &7в кейсе с инструментами.
+        CHANCE: 1.5
+      NETHERITE_PICKAXE_3:
+        TYPE: COMMAND
+        ID: NETHERITE_PICKAXE
+        TITLE: §x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7
+        COMMANDS:
+        - console;minecraft:give {player} netherite_pickaxe{Enchantments:[{id:"minecraft:efficiency",lvl:7s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:fortune",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;§x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7;&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл §x§0§8§4§c§f§bЭ§x§1§5§5§9§f§bф§x§2§1§6§6§f§bф§x§2§e§7§3§f§bе§x§3§b§7§f§f§cк§x§4§7§8§c§f§cт§x§5§4§9§9§f§cи§x§6§1§a§6§f§cв§x§6§e§b§3§f§cн§x§7§a§c§0§f§cо§x§8§7§c§c§f§dс§x§9§4§d§9§f§dт§x§a§0§e§6§f§dь
+          §x§a§d§f§3§f§d7 &7в кейсе с инструментами.
+        CHANCE: 0.25
+  
+  
+  
+  ingredients:
+    IS_FREE: false
+    ANIMATION_SETTINGS:
+      ROTATE_SOUND: UI_BUTTON_CLICK
+      END_SOUND: BLOCK_CHEST_CLOSE
+      RADIUS: 1.5
+      USE_FROSTLORD: true
+      ROTATE_TIME: 3
+      ITEMS_SPEED: 11.5
+      PARTICLES_SPEED: 8
+    ITEMS:
+      NETHER_WART:
+        TYPE: COMMAND
+        ID: NETHER_WART
+        TITLE: '&6Нарост'
+        COMMANDS:
+        - console;minecraft:give {player} nether_wart 64
+        - tm;&6Нарост;&7Поздравляем!
+        CHANCE: 10
+      BLAZE_ROD:
+        TYPE: COMMAND
+        ID: BLAZE_ROD
+        TITLE: '&6Огненный стержень'
+        COMMANDS:
+        - console;minecraft:give {player} blaze_rod 64
+        - tm;&6Огненный стержень;&7Поздравляем!
+        CHANCE: 4
+      MAGMA_CREAM:
+        TYPE: COMMAND
+        ID: MAGMA_CREAM
+        TITLE: '&6Сгусток магмы'
+        COMMANDS:
+        - console;minecraft:give {player} magma_cream 64
+        - tm;&6Сгусток магмы;&7Поздравляем!
+        CHANCE: 4
+      PHANTOM_MEMBRANE:
+        TYPE: COMMAND
+        ID: PHANTOM_MEMBRANE
+        TITLE: '&6Мембрана фантома'
+        COMMANDS:
+        - console;minecraft:give {player} phantom_membrane 64
+        - tm;&6Мембрана фантома;&7Поздравляем!
+        CHANCE: 3
+      DRAGON_BREATH:
+        TYPE: COMMAND
+        ID: DRAGON_BREATH
+        TITLE: '&6Драконье дыхание'
+        COMMANDS:
+        - console;minecraft:give {player} dragon_breath 64
+        - tm;&6Драконье дыхание;&7Поздравляем!
+        CHANCE: 3
+      RABBIT_FOOT:
+        TYPE: COMMAND
+        ID: RABBIT_FOOT
+        TITLE: '&6Кроличья лапка'
+        COMMANDS:
+        - console;minecraft:give {player} rabbit_foot 64
+        - tm;&6Кроличья лапка;&7Поздравляем!
+        CHANCE: 2
+      PUFFERFISH:
+        TYPE: COMMAND
+        ID: PUFFERFISH
+        TITLE: '&6Фуга'
+        COMMANDS:
+        - console;minecraft:give {player} pufferfish 64
+        - tm;&6Фуга;&7Поздравляем!
+        CHANCE: 2
+      GOLDEN_CARROT:
+        TYPE: COMMAND
+        ID: GOLDEN_CARROT
+        TITLE: '&6Золотая морковь'
+        COMMANDS:
+        - console;minecraft:give {player} golden_carrot 64
+        - tm;&6Золотая морковь;&7Поздравляем!
+        CHANCE: 4
+      GUNPOWDER:
+        TYPE: COMMAND
+        ID: GUNPOWDER
+        TITLE: '&6Порох'
+        COMMANDS:
+        - console;minecraft:give {player} gunpowder 64
+        - tm;&6Порох;&7Поздравляем!
+        CHANCE: 2
+      SUGAR:
+        TYPE: COMMAND
+        ID: SUGAR
+        TITLE: '&6Сахар'
+        COMMANDS:
+        - console;minecraft:give {player} sugar 64
+        - tm;&6Сахар;&7Поздравляем!
+        CHANCE: 1
+      GLASS_BOTTLE:
+        TYPE: COMMAND
+        ID: GLASS_BOTTLE
+        TITLE: '&6Бутылочка'
+        COMMANDS:
+        - console;minecraft:give {player} glass_bottle 64
+        - tm;&6Бутылочка;&7Поздравляем!
+        CHANCE: 15
+      BREWING_STAND:
+        TYPE: COMMAND
+        ID: BREWING_STAND
+        TITLE: '&6Зельеварка'
+        COMMANDS:
+        - console;minecraft:give {player} brewing_stand 64
+        - tm;&6Зельеварка;&7Поздравляем!
+        CHANCE: 15
+      BLAZE_POWDER:
+        TYPE: COMMAND
+        ID: BLAZE_POWDER
+        TITLE: '&6Огненный порошок'
+        COMMANDS:
+        - console;minecraft:give {player} blaze_powder 64
+        - tm;&6Огненный порошок;&7Поздравляем!
+        CHANCE: 3
+      GLISTERING_MELON_SLICE:
+        TYPE: COMMAND
+        ID: GLISTERING_MELON_SLICE
+        TITLE: '&6Сверкающий арбуз'
+        COMMANDS:
+        - console;minecraft:give {player} glistering_melon_slice 64
+        - tm;&6Сверкающий арбуз;&7Поздравляем!
+        CHANCE: 3
+      GLOWSTONE_DUST:
+        TYPE: COMMAND
+        ID: GLOWSTONE_DUST
+        TITLE: '&6Светокаменная пыль'
+        COMMANDS:
+        - console;minecraft:give {player} glowstone_dust 64
+        - tm;&6Светокаменная пыль;&7Поздравляем!
+        CHANCE: 4
+      
+      FERMENTED_SPIDER_EYE:
+        TYPE: COMMAND
+        ID: FERMENTED_SPIDER_EYE
+        TITLE: '&6Маринованный паучий глаз'
+        COMMANDS:
+        - console;minecraft:give {player} fermented_spider_eye 64
+        - tm;&6Маринованный паучий глаз;&7Поздравляем!
+        CHANCE: 3
+      
+      SPIDER_EYE:
+        TYPE: COMMAND
+        ID: SPIDER_EYE
+        TITLE: '&6Паучий глаз'
+        COMMANDS:
+        - console;minecraft:give {player} fermented_spider_eye 64
+        - tm;&6Паучий глаз;&7Поздравляем!
+        CHANCE: 3
+      
+      GHAST_TEAR:
+        TYPE: COMMAND
+        ID: GHAST_TEAR
+        TITLE: '&6Слеза гаста'
+        COMMANDS:
+        - console;minecraft:give {player} ghast_tear 16
+        - tm;&6Cлеза гаста;&7Поздравляем!
+        CHANCE: 1
+      
+      REDSTONE:
+        TYPE: COMMAND
+        ID: REDSTONE
+        TITLE: '&6Рудстоун'
+        COMMANDS:
+        - console;minecraft:give {player} redstone 64
+        - tm;&6Рудстоун;&7Поздравляем!
+        CHANCE: 4
+      ENCHANTED_GOLDEN_APPLE:
+        TYPE: COMMAND
+        ID: ENCHANTED_GOLDEN_APPLE
+        TITLE: '&6Чарка'
+        COMMANDS:
+        - console;minecraft:give {player} ENCHANTED_GOLDEN_APPLE 1
+        - tm;&6Чарка;&7Поздравляем!
+        CHANCE: 1
+  
+  armor:
+    IS_FREE: false
+    ANIMATION_SETTINGS:
+      ROTATE_SOUND: UI_BUTTON_CLICK
+      END_SOUND: BLOCK_CHEST_CLOSE
+      RADIUS: 2.5
+      USE_FROSTLORD: true
+      ROTATE_TIME: 3
+      ITEMS_SPEED: 11.5
+      PARTICLES_SPEED: 8
+    ITEMS:
+      # =======Алмазные Обычные
+      DIAMOND_HELMET:
+        TYPE: COMMAND
+        ID: DIAMOND_HELMET
+        TITLE: '&7Обычный'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_helmet
+        - tm;&6Алмазный шлем;&7Поздравляем!
+        CHANCE: 10
+      DIAMOND_CHESTPLATE:
+        TYPE: COMMAND
+        ID: DIAMOND_CHESTPLATE
+        TITLE: '&7Обычный'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_chestplate
+        - tm;&6Алмазный нагрудник;&7Поздравляем!
+        CHANCE: 10
+      DIAMOND_LEGGINGS:
+        TYPE: COMMAND
+        ID: DIAMOND_LEGGINGS
+        TITLE: '&7Обычные'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_leggings
+        - tm;&6Алмазные поножи;&7Поздравляем!
+        CHANCE: 10
+      DIAMOND_BOOTS:
+        TYPE: COMMAND
+        ID: DIAMOND_BOOTS
+        TITLE: '&7Обычные'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_boots
+        - tm;&6Алмазные ботинки;&7Поздравляем!
+        CHANCE: 10
+      
+      # =======Алмазные Защщита
+      PROTECTION_DIAMOND_HELMET:
+        TYPE: COMMAND
+        ID: DIAMOND_HELMET
+        TITLE: '&7[&6з.4&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_helmet{Enchantments:[{id:"minecraft:protection",lvl:4s}]}
+          1
+        - tm;&6Алмазный шлем [з.4];&7Поздравляем!
+        CHANCE: 2.5
+      PROTECTION_DIAMOND_CHESTPLATE:
+        TYPE: COMMAND
+        ID: DIAMOND_CHESTPLATE
+        TITLE: '&7[&6з.4&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_chestplate{Enchantments:[{id:"minecraft:protection",lvl:4s}]}
+          1
+        - tm;&6Алмазный нагрудник [з.4];&7Поздравляем!
+        CHANCE: 2.5
+      PROTECTION_DIAMOND_LEGGINGS:
+        TYPE: COMMAND
+        ID: DIAMOND_LEGGINGS
+        TITLE: '&7[&6з.4&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_leggings{Enchantments:[{id:"minecraft:protection",lvl:4s}]}
+          1
+        - tm;&6Алмазные поножи &7[з.4];&7Поздравляем!
+        CHANCE: 2.5
+      PROTECTION_DIAMOND_BOOTS:
+        TYPE: COMMAND
+        ID: DIAMOND_BOOTS
+        TITLE: '&7[&6з.4&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_boots{Enchantments:[{id:"minecraft:protection",lvl:4s}]}
+          1
+        - tm;&6Алмазные ботинки [з.4];&7Поздравляем!
+        CHANCE: 2.5
+      
+      
+      # =======Алмазные з.4 п.3
+      PROTECTION_UNBREAKING_DIAMOND_HELMET:
+        TYPE: COMMAND
+        ID: DIAMOND_HELMET
+        TITLE: '&7[&6з.4 п.3&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_helmet{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&6Алмазный шлем [з.4 п.3];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Алмазный шлем &7[&6з.4 п.3&7]
+          &7в кейсе с броней.
+        CHANCE: 0.375
+      PROTECTION_UNBREAKING_DIAMOND_CHESTPLATE:
+        TYPE: COMMAND
+        ID: DIAMOND_CHESTPLATE
+        TITLE: '&7[&6з.4 п.3&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_chestplate{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&6Алмазный нагрудник [з.4 п.3];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Алмазный нагрудник &7[&6з.4
+          п.3&7] &7в кейсе с броней.
+        CHANCE: 0.375
+      PROTECTION_UNBREAKING_DIAMOND_LEGGINGS:
+        TYPE: COMMAND
+        ID: DIAMOND_LEGGINGS
+        TITLE: '&7[&6з.4 п.3&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_leggings{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&6Алмазные поножи [з.4 п.3];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Алмазные поножи &7[&6з.4 п.3&7]
+          &7в кейсе с броней.
+        CHANCE: 0.375
+      PROTECTION_UNBREAKING_DIAMOND_BOOTS:
+        TYPE: COMMAND
+        ID: DIAMOND_BOOTS
+        TITLE: '&7[&6з.4 п.3&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_boots{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&6Алмазные ботинки [з.4 п.3];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Алмазные ботинки &7[&6з.4
+          п.3&7] &7в кейсе с броней.
+        CHANCE: 0.375
+      
+      # =======Алмазные TOP
+      TOP_DIAMOND_HELMET:
+        TYPE: COMMAND
+        ID: DIAMOND_HELMET
+        TITLE: '&7[&6TOP&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_helmet{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:respiration",lvl:3s},{id:"minecraft:aqua_affinity",lvl:1s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&6Алмазный шлем [TOP];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Алмазный шлем &7[&6TOP&7]
+          &7в кейсе с броней.
+        CHANCE: 0.125
+      TOP_DIAMOND_CHESTPLATE:
+        TYPE: COMMAND
+        ID: DIAMOND_CHESTPLATE
+        TITLE: '&7[&6TOP&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_chestplate{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&6Алмазный нагрудник [TOP];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Алмазный нагрудник &7[&6TOP&7]
+          &7в кейсе с броней.
+        CHANCE: 0.125
+      TOP_DIAMOND_LEGGINGS:
+        TYPE: COMMAND
+        ID: DIAMOND_LEGGINGS
+        TITLE: '&7[&6TOP&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_leggings{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&6Алмазные поножи [TOP];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Алмазные поножи &7[&6TOP&7]
+          &7в кейсе с броней.
+        CHANCE: 0.125
+      TOP_DIAMOND_BOOTS:
+        TYPE: COMMAND
+        ID: DIAMOND_BOOTS
+        TITLE: '&7[&6TOP&7]'
+        COMMANDS:
+        - console;minecraft:give {player} diamond_boots{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:feather_falling",lvl:4s},{id:"minecraft:depth_strider",lvl:3s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&6Алмазные ботинки [TOP];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Алмазные ботинки &7[&6TOP&7]
+          &7в кейсе с броней.
+        CHANCE: 0.125
+      
+      
+      
+      # =======Незер Обычные
+      NETHERITE_HELMET:
+        TYPE: COMMAND
+        ID: NETHERITE_HELMET
+        TITLE: '&7Обычный'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_helmet
+        - tm;&6Незеритовый шлем;&7Поздравляем!
+        CHANCE: 9
+      NETHERITE_CHESTPLATE:
+        TYPE: COMMAND
+        ID: NETHERITE_CHESTPLATE
+        TITLE: '&7Обычный'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_chestplate
+        - tm;&6Незеритовый нагрудник;&7Поздравляем!
+        CHANCE: 9
+      NETHERITE_LEGGINGS:
+        TYPE: COMMAND
+        ID: NETHERITE_LEGGINGS
+        TITLE: '&7Обычные'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_leggings
+        - tm;&6Незеритовые поножи;&7Поздравляем!
+        CHANCE: 9
+      NETHERITE_BOOTS:
+        TYPE: COMMAND
+        ID: NETHERITE_BOOTS
+        TITLE: '&7Обычные'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_boots
+        - tm;&6Незеритовые ботинки;&7Поздравляем!
+        CHANCE: 9
+      
+      # =======Незер Защщита
+      NETHERITE_DIAMOND_HELMET:
+        TYPE: COMMAND
+        ID: NETHERITE_HELMET
+        TITLE: '&7[&6з.4&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_helmet{Enchantments:[{id:"minecraft:protection",lvl:4s}]}
+          1
+        - tm;&6Незеритовый шлем [з.4];&7Поздравляем!
+        CHANCE: 2.5
+      NETHERITE_DIAMOND_CHESTPLATE:
+        TYPE: COMMAND
+        ID: NETHERITE_CHESTPLATE
+        TITLE: '&7[&6з.4&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_chestplate{Enchantments:[{id:"minecraft:protection",lvl:4s}]}
+          1
+        - tm;&6Незеритовый нагрудник [з.4];&7Поздравляем!
+        CHANCE: 2.5
+      NETHERITE_DIAMOND_LEGGINGS:
+        TYPE: COMMAND
+        ID: NETHERITE_LEGGINGS
+        TITLE: '&7[&6з.4&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_leggings{Enchantments:[{id:"minecraft:protection",lvl:4s}]}
+          1
+        - tm;&6Незеритовые поножи &7[з.4];&7Поздравляем!
+        CHANCE: 2.5
+      NETHERITE_DIAMOND_BOOTS:
+        TYPE: COMMAND
+        ID: NETHERITE_BOOTS
+        TITLE: '&7[&6з.4&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_boots{Enchantments:[{id:"minecraft:protection",lvl:4s}]}
+          1
+        - tm;&6Незеритовые ботинки [з.4];&7Поздравляем!
+        CHANCE: 2.5
+      
+      
+      # =======Незер з.4 п.3
+      NETHERITE_UNBREAKING_DIAMOND_HELMET:
+        TYPE: COMMAND
+        ID: NETHERITE_HELMET
+        TITLE: '&7[&6з.4 п.3&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_helmet{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&6Незеритовый шлем [з.4 п.3];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Незеритовый шлем &7[&6з.4
+          п.3&7] &7в кейсе с броней.
+        CHANCE: 0.375
+      NETHERITE_UNBREAKING_DIAMOND_CHESTPLATE:
+        TYPE: COMMAND
+        ID: NETHERITE_CHESTPLATE
+        TITLE: '&7[&6з.4 п.3&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_chestplate{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&6Незеритовый нагрудник [з.4 п.3];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Незеритовый нагрудник &7[&6з.4
+          п.3&7] &7в кейсе с броней.
+        CHANCE: 0.375
+      NETHERITE_UNBREAKING_DIAMOND_LEGGINGS:
+        TYPE: COMMAND
+        ID: NETHERITE_LEGGINGS
+        TITLE: '&7[&6з.4 п.3&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_leggings{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&6Незеритовые поножи [з.4 п.3];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Незеритовые поножи &7[&6з.4
+          п.3&7] &7в кейсе с броней.
+        CHANCE: 0.375
+      NETHERITE_UNBREAKING_DIAMOND_BOOTS:
+        TYPE: COMMAND
+        ID: NETHERITE_BOOTS
+        TITLE: '&7[&6з.4 п.3&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_boots{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s}]}
+          1
+        - tm;&6Незеритовые ботинки [з.4 п.3];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Незеритовые ботинки &7[&6з.4
+          п.3&7] &7в кейсе с броней.
+        CHANCE: 0.375
+      
+      # =======Незер TOP
+      TOP_NETHERITE_HELMET:
+        TYPE: COMMAND
+        ID: DIAMOND_HELMET
+        TITLE: '&7[&6TOP&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_helmet{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:respiration",lvl:3s},{id:"minecraft:aqua_affinity",lvl:1s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&6Незеритовый шлем [TOP];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Незеритовый шлем &7[&6TOP&7]
+          &7в кейсе с броней.
+        CHANCE: 0.125
+      TOP_NETHERITE_CHESTPLATE:
+        TYPE: COMMAND
+        ID: DIAMOND_CHESTPLATE
+        TITLE: '&7[&6TOP&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_chestplate{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&6Незеритовый нагрудник [TOP];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Незеритовый нагрудник &7[&6TOP&7]
+          &7в кейсе с броней.
+        CHANCE: 0.125
+      TOP_NETHERITE_LEGGINGS:
+        TYPE: COMMAND
+        ID: DIAMOND_LEGGINGS
+        TITLE: '&7[&6TOP&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_leggings{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&6Незеритовые поножи [TOP];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Незеритовые поножи &7[&6TOP&7]
+          &7в кейсе с броней.
+        CHANCE: 0.125
+      TOP_NETHERITE_BOOTS:
+        TYPE: COMMAND
+        ID: DIAMOND_BOOTS
+        TITLE: '&7[&6TOP&7]'
+        COMMANDS:
+        - console;minecraft:give {player} netherite_boots{Enchantments:[{id:"minecraft:protection",lvl:4s},{id:"minecraft:feather_falling",lvl:4s},{id:"minecraft:depth_strider",lvl:3s},{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:mending",lvl:1s}]}
+          1
+        - tm;&6Незеритовые ботинки [TOP];&7Поздравляем!
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6Незеритовые ботинки &7[&6TOP&7]
+          &7в кейсе с броней.
+        CHANCE: 0.125
+  
+  
+  
+  
+  skins_daily:
+    FREE_TIME: 23 # Раз в какой промежуток времени будет выдаваться кейс?
+    TIME_FORMAT: §6%days% §7дн, §6%hours% §7ч, §6%minutes% §7мин, §6%seconds% §7сек # Формат времени в плейсхолдере конкретно для кейса daily в нашем случае
+    IS_FREE: true
+    OPEN_MESSAGES: []
+    ANIMATION_SETTINGS:
+      ROTATE_SOUND: UI_BUTTON_CLICK
+      END_SOUND: BLOCK_CHEST_CLOSE
+      RADIUS: 1.5
+      USE_FROSTLORD: true
+      ROTATE_TIME: 3
+      ITEMS_SPEED: 11.5
+      PARTICLES_SPEED: 8
+    ITEMS:
+      # netherite_sword
+      cyber_sword:
+        TYPE: COMMAND
+        ID: NETHERITE_SWORD
+        TITLE: '&6Кибер меч'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.cyber_sword true
+        - console;minecraft:give {player} netherite_sword{"CustomModelData":2015}
+        - tm;&6Кибер меч;&7На незеритовый меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Кибер меч &7в ежедневном
+          кейсе
+        CHANCE: 7
+      nice_azure_greatsword:
+        TYPE: COMMAND
+        ID: NETHERITE_SWORD
+        TITLE: '&6Меч азуры'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.nice_azure_greatsword
+          true
+        - console;minecraft:give {player} netherite_sword{"CustomModelData":2066}
+        - tm;&6Меч азуры;&7На незеритовый меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Меч азуры &7в ежедневном
+          кейсе
+        CHANCE: 1
+      nice_claymore:
+        TYPE: COMMAND
+        ID: NETHERITE_SWORD
+        TITLE: '&6Клеймор'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.nice_claymore true
+        - console;minecraft:give {player} netherite_sword{"CustomModelData":2072}
+        - tm;&6Клеймор;&7На незеритовый меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Клеймор &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      demon_sword:
+        TYPE: COMMAND
+        ID: NETHERITE_SWORD
+        TITLE: '&6Демонический меч'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.demon_sword true
+        - console;minecraft:give {player} netherite_sword{"CustomModelData":2010}
+        - tm;&6Демонический меч;&7На незеритовый меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Демонический меч &7в
+          ежедневном кейсе
+        CHANCE: 1
+      
+      core_netherite_katana:
+        TYPE: COMMAND
+        ID: NETHERITE_SWORD
+        TITLE: '&6Незеритовая катана'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_netherite_katana
+          true
+        - console;minecraft:give {player} netherite_sword{"CustomModelData":2050}
+        - tm;&6Незеритовая катана;&7На незеритовый меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Незеритовая катана &7в
+          ежедневном кейсе
+        CHANCE: 3
+      # diamond_sword
+      core_gold_sword_1:
+        TYPE: COMMAND
+        ID: DIAMOND_SWORD
+        TITLE: '&6Золотой меч'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_gold_sword_1
+          true
+        - console;minecraft:give {player} diamond_sword{"CustomModelData":2046}
+        - tm;&6Золотой меч;&7На алмазный меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Золотой меч &7в ежедневном
+          кейсе
+        CHANCE: 10
+      
+      rune_sword:
+        TYPE: COMMAND
+        ID: DIAMOND_SWORD
+        TITLE: '&6Рунный меч'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_gold_sword_1
+          true
+        - console;minecraft:give {player} diamond_sword{"CustomModelData":2008}
+        - tm;&6Рунный меч;&7На алмазный меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Рунный меч &7в ежедневном
+          кейсе
+        CHANCE: 1
+      
+      core_coral_sword_1:
+        TYPE: COMMAND
+        ID: DIAMOND_SWORD
+        TITLE: '&6Кораловый меч'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_coral_sword_1
+          true
+        - console;minecraft:give {player} diamond_sword{"CustomModelData":2028}
+        - tm;&6Кораловый меч;&7На алмазный меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Кораловый меч &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      core_diamond_sword_1:
+        TYPE: COMMAND
+        ID: DIAMOND_SWORD
+        TITLE: '&6Алмазный меч'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_diamond_sword_1
+          true
+        - console;minecraft:give {player} diamond_sword{"CustomModelData":2030}
+        - tm;&6Алмазный меч;&7На алмазный меч
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Алмазный меч &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      # netherite_axe
+      core_blood_axe:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: '&6Топор крови'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_blood_axe true
+        - console;minecraft:give {player} netherite_axe{"CustomModelData":2004}
+        - tm;&6Топор крови;&7На незеритовый топор
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Топор крови &7в ежедневном
+          кейсе
+        CHANCE: 10
+      
+      core_obsidian_axe:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: '&6Обсидиановый молот'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_obsidian_axe
+          true
+        - console;minecraft:give {player} netherite_axe{"CustomModelData":2005}
+        - tm;&6Обсидиановый молот;&7На незеритовый топор
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Обсидиановый молот &7в
+          ежедневном кейсе
+        CHANCE: 2
+      
+      stardust_axe:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: '&6Топор звездной пыли'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.stardust_axe true
+        - console;minecraft:give {player} netherite_axe{"CustomModelData":2002}
+        - tm;&6Топор звездной пыли;&7На незеритовый топор
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Топор звездной пыли &7в
+          ежедневном кейсе
+        CHANCE: 2
+      
+      demon_axe:
+        TYPE: COMMAND
+        ID: NETHERITE_AXE
+        TITLE: '&6Демонический топор'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.demon_axe true
+        - console;minecraft:give {player} netherite_axe{"CustomModelData":2001}
+        - tm;&6Демонический топор;&7На незеритовый топор
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Демонический топор &7в
+          ежедневном кейсе
+        CHANCE: 1
+      
+      # DIAMOND_AXE
+      rune_axe:
+        TYPE: COMMAND
+        ID: DIAMOND_AXE
+        TITLE: '&6Рунный топор'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.rune_axe true
+        - console;minecraft:give {player} diamond_axe{"CustomModelData":2002}
+        - tm;&6Рунный топор;&7На алмазный топор
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Рунный топор &7в ежедневном
+          кейсе
+        CHANCE: 1
+      
+      steampunk_diamond_axe:
+        TYPE: COMMAND
+        ID: DIAMOND_AXE
+        TITLE: '&6Стим-Панк топор'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.steampunk_diamond_axe
+          true
+        - console;minecraft:give {player} diamond_axe{"CustomModelData":2001}
+        - tm;&6Стим-Панк топор;&7На алмазный топор
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Стим-Панк топор &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      ametist_diamond_battle_axe:
+        TYPE: COMMAND
+        ID: DIAMOND_AXE
+        TITLE: '&6Аметистовый боевой топор'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.ametist_diamond_battle_axe
+          true
+        - console;minecraft:give {player} diamond_axe{"CustomModelData":2004}
+        - tm;&6Аметистовый боевой топор;&7На алмазный топор
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Аметистовый боевой топор
+          &7в ежедневном кейсе
+        CHANCE: 10
+      
+      ametist_diamond_axe:
+        TYPE: COMMAND
+        ID: DIAMOND_AXE
+        TITLE: '&6Аметистовый топор'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.ametist_diamond_axe
+          true
+        - console;minecraft:give {player} diamond_axe{"CustomModelData":2003}
+        - tm;&6Аметистовый топор;&7На алмазный топор
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Аметистовый топор &7в
+          ежедневном кейсе
+        CHANCE: 4
+      
+      # netherite_pickaxe
+      stardust_pickaxe:
+        TYPE: COMMAND
+        ID: NETHERITE_PICKAXE
+        TITLE: '&6Кирка звездной пыли'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.stardust_pickaxe
+          true
+        - console;minecraft:give {player} netherite_pickaxe{"CustomModelData":2001}
+        - tm;&6Кирка звездной пыли;&7На незеритовую кирку
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Кирка звездной пыли &7в
+          ежедневном кейсе
+        CHANCE: 10
+      
+      core_crimson_pickaxe:
+        TYPE: COMMAND
+        ID: NETHERITE_PICKAXE
+        TITLE: '&6Кирка кримзона'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_crimson_pickaxe
+          true
+        - console;minecraft:give {player} netherite_pickaxe{"CustomModelData":2006}
+        - tm;&6Кирка кримзона;&7На незеритовую кирку
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Кирка кримзона &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      core_bee_pickaxe:
+        TYPE: COMMAND
+        ID: NETHERITE_PICKAXE
+        TITLE: '&6Медовая кирка'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_bee_pickaxe
+          true
+        - console;minecraft:give {player} netherite_pickaxe{"CustomModelData":2004}
+        - tm;&6Медовая кирка;&7На незеритовую кирку
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Медовая кирка &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      core_blood_pickaxe:
+        TYPE: COMMAND
+        ID: NETHERITE_PICKAXE
+        TITLE: '&6Кирка крови'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_blood_pickaxe
+          true
+        - console;minecraft:give {player} netherite_pickaxe{"CustomModelData":2005}
+        - tm;&6Кирка крови;&7На незеритовую кирку
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Кирка крови &7в ежедневном
+          кейсе
+        CHANCE: 1
+      
+      # diamond_pickaxe
+      ametist_diamond_pickaxe:
+        TYPE: COMMAND
+        ID: DIAMOND_PICKAXE
+        TITLE: '&6Аметистовая кирка'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.ametist_diamond_pickaxe
+          true
+        - console;minecraft:give {player} diamond_pickaxe{"CustomModelData":2003}
+        - tm;&6Аметистовая кирка;&7На алмазную кирку
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Аметистовая кирка &7в
+          ежедневном кейсе
+        CHANCE: 10
+      
+      steampunk_diamond_pickaxe:
+        TYPE: COMMAND
+        ID: DIAMOND_PICKAXE
+        TITLE: '&6Стим-Панк кирка'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.steampunk_diamond_pickaxe
+          true
+        - console;minecraft:give {player} diamond_pickaxe{"CustomModelData":2001}
+        - tm;&6Стим-Панк кирка;&7На алмазную кирку
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Стим-Панк кирка &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      rune_pickaxe:
+        TYPE: COMMAND
+        ID: DIAMOND_PICKAXE
+        TITLE: '&6Рунная кирка'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.rune_pickaxe true
+        - console;minecraft:give {player} diamond_pickaxe{"CustomModelData":2002}
+        - tm;&6Рунная кирка;&7На алмазную кирку
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Рунная кирка &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      core_diamond_pickaxe:
+        TYPE: COMMAND
+        ID: DIAMOND_PICKAXE
+        TITLE: '&6Алмазная кирка'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.core_diamond_pickaxe
+          true
+        - console;minecraft:give {player} diamond_pickaxe{"CustomModelData":2004}
+        - tm;&6Алмазная кирка;&7На алмазную кирку
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Алмазная кирка &7в ежедневном
+          кейсе
+        CHANCE: 1
+      
+      # shield
+      xmas_bow:
+        TYPE: COMMAND
+        ID: SHIELD
+        TITLE: '&6Щит рождественская сказка'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.xmas_bow true
+        - console;minecraft:give {player} shield{"CustomModelData":2008}
+        - tm;&6Щит рождественская сказка;&7На щит
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Щит рождественская сказка
+          &7в ежедневном кейсе
+        CHANCE: 6
+      
+      ametist_shield:
+        TYPE: COMMAND
+        ID: SHIELD
+        TITLE: '&6Аметистовый щит'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.ametist_shield true
+        - console;minecraft:give {player} shield{"CustomModelData":2002}
+        - tm;&6Аметистовый щит;&7На щит
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Аметистовый щит &7в ежедневном
+          кейсе
+        CHANCE: 2
+      
+      cyber_shield:
+        TYPE: COMMAND
+        ID: SHIELD
+        TITLE: '&6Кибер щит'
+        COMMANDS:
+        - console;lp user {player} permission set ItemSkinChanger.cyber_shield true
+        - console;minecraft:give {player} shield{"CustomModelData":2004}
+        - tm;&6Кибер щит;&7На щит
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл скин &6Кибер щит &7в ежедневном
+          кейсе
+        CHANCE: 2
+  
+  money:
+    # FREE_TIME: 23 # Раз в какой промежуток времени будет выдаваться кейс?
+    # TIME_FORMAT: §6%days% §7дн, §6%hours% §7ч, §6%minutes% §7мин, §6%seconds% §7сек # Формат времени в плейсхолдере конкретно для кейса daily в нашем случае
+    IS_FREE: false
+    OPEN_MESSAGES: []
+    ANIMATION_SETTINGS:
+      ROTATE_SOUND: UI_BUTTON_CLICK
+      END_SOUND: BLOCK_CHEST_CLOSE
+      RADIUS: 1.5
+      USE_FROSTLORD: true
+      ROTATE_TIME: 3
+      ITEMS_SPEED: 11.5
+      PARTICLES_SPEED: 8
+    ITEMS:
+      '500':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&6500&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 500
+        - tm;&6500;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &6500 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 10
+      '1000':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&61000&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 1000
+        - tm;&61000;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &61000 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 13
+      '1500':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&61500&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 1500
+        - tm;&61500;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &61500 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 18
+      '2500':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&62500&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 2500
+        - tm;&62500;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &62500 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 15
+      '3000':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&63000&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 3000
+        - tm;&63000;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &63000 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 10
+      '4000':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&64000&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 4000
+        - tm;&64000;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &64000 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 8
+      '5000':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&65000&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 5000
+        - tm;&65000;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &65000 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 7
+      '10000':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&610000&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 10000
+        - tm;&610000;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &610000 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 4
+      '15000':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&615000&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 15000
+        - tm;&615000;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &615000 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 3
+      '25000':
+        TYPE: COMMAND
+        ID: SUNFLOWER
+        TITLE: '&625000&7 Тау'
+        COMMANDS:
+        - console;eco give {player} 25000
+        - tm;&625000;&7Тау
+        - bc;&7[&6Кейсы&7] Игрок &6{player} &7выиграл &625000 тау &7в монетном кейсе
+        - bc;&6|&7 Покупка кейса производится на сайте » &6Minecraft.ru
+        CHANCE: 2
+
+
+BACKEND: sqlite # Модуль подключения к бд. Выбирать одно из двух: sqlite или mysql
+MYSQL: # Данные для подключения к MySQL
+  HOST: localhost
+  USER: root
+  DATABASE: anarchy
+  PORT: 3306
+CASES_LOCATIONS:
+- world;-21;63;-32;x
+- world;-34;64;-34;x
+
+

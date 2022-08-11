@@ -1,0 +1,218 @@
+menu_title: 'Скупщик'
+open_command:
+- buyer
+size: 54
+
+items:
+  'potato':
+    material: baked_potato 
+    display_name: ''
+    data: 0
+    amount: 64
+    slot: 10
+    lore:
+    - ""
+    - "&7Нажмите чтобы продать за: $&615"
+    - ""
+    left_click_commands:
+    - '[console] eco give %player_name% 15'
+    - '[console] clear %player_name% baked_potato 64'
+    - '[message] &7[&6СКУПЩИК&7] Вы успешно продали &6жареный картофель&7 за $&615.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    left_click_requirement:
+      requirements:
+        item:
+          type: has item 
+          amount: 64
+          material: baked_potato
+      deny_commands:
+      - '[message] &7[&6СКУПЩИК&7] У вас недостаточно этого предмета в инвентаре.'
+      - '[sound] BLOCK_COMPARATOR_CLICK'  
+  'cocoa_beans':
+    material: cocoa_beans 
+    display_name: ''
+    data: 0
+    amount: 64
+    slot: 11
+    lore:
+    - ""
+    - "&7Нажмите чтобы продать за: $&615"
+    - ""
+    left_click_commands:
+    - '[console] eco give %player_name% 15'
+    - '[console] clear %player_name% cocoa_beans 64'
+    - '[message] &7[&6СКУПЩИК&7] Вы успешно продали &6какао бобы&7 за $&615.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    left_click_requirement:
+      requirements:
+        item:
+          type: has item 
+          amount: 64
+          material: cocoa_beans
+      deny_commands:
+      - '[message] &7[&6СКУПЩИК&7] У вас недостаточно этого предмета в инвентаре.'
+      - '[sound] BLOCK_COMPARATOR_CLICK'
+  'nether_wart':
+    material: nether_wart 
+    display_name: ''
+    data: 0
+    amount: 64
+    slot: 12
+    lore:
+    - ""
+    - "&7Нажмите чтобы продать за: $&610"
+    - ""
+    left_click_commands:
+    - '[console] eco give %player_name% 10'
+    - '[console] clear %player_name% nether_wart 64'
+    - '[message] &7[&6СКУПЩИК&7] Вы успешно продали &6нарост&7 за $&610.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    left_click_requirement:
+      requirements:
+        item:
+          type: has item 
+          amount: 64
+          material: nether_wart
+      deny_commands:
+      - '[message] &7[&6СКУПЩИК&7] У вас недостаточно этого предмета в инвентаре.'
+      - '[sound] BLOCK_COMPARATOR_CLICK'
+  'chorus_fruit':
+    material: chorus_fruit 
+    display_name: ''
+    data: 0
+    amount: 64
+    slot: 13
+    lore:
+    - ""
+    - "&7Нажмите чтобы продать за: $&610"
+    - ""
+    left_click_commands:
+    - '[console] eco give %player_name% 10'
+    - '[console] clear %player_name% chorus_fruit 64'
+    - '[message] &7[&6СКУПЩИК&7] Вы успешно продали &6хорус&7 за $&610.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    left_click_requirement:
+      requirements:
+        item:
+          type: has item 
+          amount: 64
+          material: chorus_fruit
+      deny_commands:
+      - '[message] &7[&6СКУПЩИК&7] У вас недостаточно этого предмета в инвентаре.'
+      - '[sound] BLOCK_COMPARATOR_CLICK'      
+  'sugar_cane':
+    material: sugar_cane 
+    display_name: ''
+    data: 0
+    amount: 64
+    slot: 14
+    lore:
+    - ""
+    - "&7Нажмите чтобы продать за: $&610"
+    - ""
+    left_click_commands:
+    - '[console] eco give %player_name% 10'
+    - '[console] clear %player_name% sugar_cane 64'
+    - '[message] &7[&6СКУПЩИК&7] Вы успешно продали &6тростник&7 за $&610.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    left_click_requirement:
+      requirements:
+        item:
+          type: has item 
+          amount: 64
+          material: sugar_cane
+      deny_commands:
+      - '[message] &7[&6СКУПЩИК&7] У вас недостаточно этого предмета в инвентаре.'
+      - '[sound] BLOCK_COMPARATOR_CLICK'  
+  'cactus':
+    material: cactus 
+    display_name: ''
+    data: 0
+    amount: 64
+    slot: 15
+    lore:
+    - ""
+    - "&7Нажмите чтобы продать за: $&610"
+    - ""
+    left_click_commands:
+    - '[console] eco give %player_name% 10'
+    - '[console] clear %player_name% cactus 64'
+    - '[message] &7[&6СКУПЩИК&7] Вы успешно продали &6кактус&7 за $&610.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    left_click_requirement:
+      requirements:
+        item:
+          type: has item 
+          amount: 64
+          material: cactus
+      deny_commands:
+      - '[message] &7[&6СКУПЩИК&7] У вас недостаточно этого предмета в инвентаре.'
+      - '[sound] BLOCK_COMPARATOR_CLICK'
+      
+  'beetroot':
+    material: beetroot 
+    display_name: ''
+    data: 0
+    amount: 64
+    slot: 16
+    lore:
+    - ""
+    - "&7Нажмите чтобы продать за: $&610"
+    - ""
+    left_click_commands:
+    - '[console] eco give %player_name% 10'
+    - '[console] clear %player_name% beetroot 64'
+    - '[message] &7[&6СКУПЩИК&7] Вы успешно продали &6свёклу&7 за $&610.'
+    - '[sound] BLOCK_COMPARATOR_CLICK'
+    left_click_requirement:
+      requirements:
+        item:
+          type: has item 
+          amount: 64
+          material: beetroot
+      deny_commands:
+      - '[message] &7[&6СКУПЩИК&7] У вас недостаточно этого предмета в инвентаре.'
+      - '[sound] BLOCK_COMPARATOR_CLICK'       
+
+ 
+
+
+
+      
+  'fill_frame_white':
+    material: lime_stained_glass_pane
+    display_name: '&r'
+    priority: 3
+    slots:
+    - 0
+    - 8
+    - 53
+    - 45
+  'fill_frame_purple':
+    material: white_stained_glass_pane
+    data: 2
+    display_name: '&r'
+    priority: 2
+    slots:
+    - 1
+    - 46
+    - 52
+    - 7
+    - 9
+    - 18
+    - 27
+    - 17
+    - 26
+    - 35
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 47
+    - 48
+    - 49
+    - 50
+    - 51
+    - 44
+    - 36

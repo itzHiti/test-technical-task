@@ -1,0 +1,14 @@
+# DeluxeMenus 1.13.5-Release main configuration file
+#
+# A full wiki on how to use this plugin can be found at:
+# https://wiki.helpch.at/clips-plugins/deluxemenus
+
+debug: false
+check_updates: true
+gui_menus:
+  shop:
+    file: shop.yml
+  rewards:
+    file: rewards.yml
+  keyMaster:
+    file: keyMaster.yml
