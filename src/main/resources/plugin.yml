@@ -1,0 +1,8 @@
+name: CasesPlus
+version: '${project.version}'
+main: kz.itzhiti.casesplus.CasesPlus
+api-version: 1.18
+depend: [ MoonCases ]
+authors: [ itzHiti ]
+description: Доп. плагин для MoonCases
+website: vk.com/hitioff
